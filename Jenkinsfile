@@ -8,6 +8,7 @@ pipeline {
         stage ('Build services') {
             parallel {
                 stage ('Build Service 1') {
+                    agent any
                     when {
                         changeset "code/sample-service-1/**"
                     }
@@ -16,18 +17,21 @@ pipeline {
                     }
                 }
                 stage ('Build Service 2') {
+                    agent any
                     when {
                         changeset "code/sample-service-2/**"
                     }
                     steps {
                        echo 'Service 2!'
+                       sh 'exit 1'
                     }
                 }
             }
         }
         stage ('Deploy') {
+            agent any
             steps {
-               echo 'Finally deploy!'
+                echo 'Deploy!'
             }
         }
     }
