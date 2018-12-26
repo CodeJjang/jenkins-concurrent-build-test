@@ -14,7 +14,7 @@ pipeline {
                     }
                     steps {
                        echo 'Service 1 sleep...'
-                       sleep 20
+                       sleep 20s
                        echo 'Service 1!'
                     }
                 }
