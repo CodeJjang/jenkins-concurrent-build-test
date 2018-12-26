@@ -8,7 +8,6 @@ pipeline {
         stage ('Build services') {
             parallel {
                 stage ('Build Service 1') {
-                    agent any
                     steps {
                        echo 'Service 1 sleep...'
                        sleep time:10, unit: SECONDS
@@ -16,7 +15,6 @@ pipeline {
                     }
                 }
                 stage ('Build Service 2') {
-                    agent any
                     steps {
                        echo 'Service 2!'
                        sh 'exit 1'
@@ -25,7 +23,6 @@ pipeline {
             }
         }
         stage ('Deploy') {
-            agent any
             steps {
                 echo 'Deploy!'
             }
