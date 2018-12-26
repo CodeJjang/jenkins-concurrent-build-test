@@ -13,6 +13,8 @@ pipeline {
                         changeset "code/sample-service-1/**"
                     }
                     steps {
+                       echo 'Service 1 sleep...'
+                       sleep 20
                        echo 'Service 1!'
                     }
                 }
